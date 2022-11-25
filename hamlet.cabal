@@ -18,8 +18,8 @@ library
   default-language:    Haskell2010
 
 
-executable tests
-  hs-source-dirs:      executables
-  main-is:             Main.hs
+executable KNN
+  hs-source-dirs:      executables/KNN
+  main-is:             KNN.hs
   build-depends:       base >=4.12 && <4.13
   default-language:    Haskell2010
