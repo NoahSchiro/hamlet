@@ -27,9 +27,13 @@ instance (Num a) => Num (Matrix a) where
         where a = contents m1
               b = contents m2
 
-    -- TODO:
+    -- Matrix subtraction
+    m1 - m2 = toMatrix (zipWith (zipWith (-)) a b)
+        where a = contents m1
+              b = contents m2
+
+    -- TODO
     m1 * m2        = undefined
     abs m1         = undefined
     signum m1      = undefined
     fromInteger m1 = undefined
-    negate m1      = undefined
