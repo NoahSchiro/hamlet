@@ -35,7 +35,7 @@ computeDistances model input = zip [euclidDistance input x | x <- (xs model)] (y
 
 -- Trained Model -> k-value -> Input data -> Output prediction
 kNNPredict :: KNNModel -> Int -> [Float] -> Int 
-kNNPredict model k input = maximum $ map (length) $ group kNearest
+kNNPredict model k input = snd $ maximum $ map (\x -> (length x, head x)) $ group kNearest
     where 
     --Takes the k nearest from sorted, removes the distances and just gives us the y values
     kNearest = map (\(_,x) -> x) (take k sorted)
