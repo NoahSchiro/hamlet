@@ -14,7 +14,7 @@ cabal-version:       >=1.10
 library
   exposed-modules:     KNN, Matrix, Tools
   build-depends:       base >=4.12 && <4.13
-  hs-source-dirs:      src
+  hs-source-dirs:      src src/KNN
   default-language:    Haskell2010
 
 
