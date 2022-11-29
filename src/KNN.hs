@@ -42,3 +42,10 @@ kNNPredict model k input = snd $ maximum $ map (\x -> (length x, head x)) $ grou
 
     --Computes distances from input and sorts them nearest to farthest
     sorted = sortBy (\(a,_) (b,_) -> compare a b) (computeDistances model input)
+
+-- Given a model, k value, input data, and expected result, what percentage is correct?
+kNNTest :: KNNModel -> Int -> [[Float]] -> [Int] -> Float
+kNNTest model k xs ys = correctPredictions / total 
+    where correctPredictions = (fromIntegral (foldl (\x y -> if y then x+1 else x+0) 0 predictions))
+          predictions = zipWith (==) ys [kNNPredict model k x | x <- xs]
+          total = fromIntegral $ length predictions

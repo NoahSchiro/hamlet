@@ -40,4 +40,7 @@ main = do
     -- Fit our model
     let model = kNNFit xTrain yTrain
 
-    print (kNNPredict model 7 (xTest !! 0))
+    -- Test the accuracy of the model
+    let accuracy = kNNTest model 7 xTest yTest
+
+    print accuracy
